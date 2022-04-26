@@ -185,7 +185,7 @@ while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
 console.log(empDailyWageMap);
 console.log("Emp Wage Map totalHrs : " + Array.from(empDailyWageMap.values()).reduce(totalWages, 0));
 
-/ UC-9 Use the Daily Wage Map and Daily Hour Map perform following operations using Arrow Functions
+// UC-9 Use the Daily Wage Map and Daily Hour Map perform following operations using Arrow Functions
 console.log("UC-9")
 
 const findTotal = (totalVal, dailyVal) => {
@@ -213,3 +213,28 @@ empDailyHrsMap.forEach( (value, key, map) => {
 console.log("Full Working Days : " + fullWorkingDays);
 console.log("Part Working Days : " + partWorkingDays);
 console.log("Non Working Days  : " + nonWorkingDays);
+
+//UC-10 Ability to store the Day, Hours Worked and Wage Earned in a single object.
+console.log("UC-10")
+totalEmpHrs = 0;
+totalWorkingDays = 0;
+let empDailyHrsAndWageArr = new Array();
+while( totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){
+    totalWorkingDays++;
+    empCheck = Math.floor(Math.random() * 10) % 3;
+    empHrs = getWorkingHours(empCheck);
+    totalEmpHrs += empHrs;
+    empDailyHrsAndWageArr.push(
+    {
+        dayNum:totalWorkingDays,
+        dailyHours:empHrs,
+        dailyWage:calcDailyWage(empHrs),
+        toString(){
+            return '\n Day' + this.dayNum + "=> Working Hours is " + this.dailyHours +
+                    ' And Wage Earned = ' + this.dailyWage
+        },
+    });
+}
+
+console.log("Showing  Daily Hours Worked and Wage Earned : " + empDailyHrsAndWageArr);
+

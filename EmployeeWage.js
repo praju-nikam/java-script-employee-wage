@@ -52,3 +52,15 @@ function getWorkingHours(empCheck){
  empHrs = getWorkingHours(empCheck);
  empWage = empHrs * WAGE_PER_HOUR;
 console.log("Hours : " + empHrs + "  Emp Wage : " + empWage);
+
+//UC-4 Forloop
+console.log("UC-4");
+
+const NUM_OF_WORKING_DAYS = 20;
+for(let day = 0; day < NUM_OF_WORKING_DAYS; day++){
+    empCheck = Math.floor(Math.random() * 10) %3;
+    totalEmpHrs =totalEmpHrs + getWorkingHours(empCheck);
+}
+empWage = totalEmpHrs * WAGE_PER_HOUR;
+console.log("Hours : " + totalEmpHrs + " Total Wage : " + empWage);
+

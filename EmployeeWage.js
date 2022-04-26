@@ -64,3 +64,14 @@ for(let day = 0; day < NUM_OF_WORKING_DAYS; day++){
 empWage = totalEmpHrs * WAGE_PER_HOUR;
 console.log("Hours : " + totalEmpHrs + " Total Wage : " + empWage);
 
+//UC-5 Calculate Wages till a condition of total working hours 160 or max day of 20is reached for month
+console.log("UC-5");
+ totalEmpHrs = 0;
+let totalWorkingDays = 0;
+while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){
+    totalWorkingDays++;
+    empCheck = Math.floor(Math.random() * 10) % 3;
+    totalEmpHrs = totalEmpHrs + getWorkingHours(empCheck);
+}
+empWage = totalEmpHrs * WAGE_PER_HOUR;
+console.log("Total Days : " + totalWorkingDays + " \t Total Hrs : " + totalEmpHrs + " \t Emp Wage : " + empWage);
